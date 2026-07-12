@@ -26,3 +26,21 @@ footer{background:var(--secondary);color:var(--white);padding:60px 5% 20px;text-
 /* CHATBOT */
 #chat-toggle{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--secondary);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 20px rgba(74,63,68,.4);z-index:999;border:none;animation:pulse 2s infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,63,68,.4)}70%{box-shadow:0 0 0 15px rgba(74,63,68,0)}100%{box-shadow:0 0 0 0 rgba(74,63,68,0)}}#chat-toggle svg{width:30px;height:30px;fill:var(--gold)}
 .chat-box{display:none;position:fixed;bottom:100px;right:30px;width:350px;max-width:calc(100% - 60px);height:450px;background:var(--white);border-radius:0;box-shadow:0 10px 40px rgba(0,0,0,.2);z-index:999;flex-direction:column;overflow:hidden;border:1px solid var(--gold)}.chat-box.active{display:flex}.chat-header{background:var(--secondary);color:var(--white);padding:15px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.4rem;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:1px}.chat-body{flex:1;padding:20px;overflow-y:auto;background:#FDF6F0;display:flex;flex-direction:column;gap:15px}.mensaje{max-width:85%;padding:12px 15px;border-radius:0;font-size:.9rem;font-family:'Jost',sans-serif}.mensaje.bot{background:var(--white);border:1px solid #FCE4EC;align-self:flex-start;color:var(--secondary)}.mensaje.user{background:var(--secondary);color:var(--white);align-self:flex-end}.mensaje.typing{font-style:italic;color:#999}.chat-product-card{background:var(--white);border:1px solid #FCE4EC;padding:10px;margin-top:10px;display:flex;gap:10px;align-items:center}.chat-product-card img{width:60px;height:60px;object-fit:cover;border-radius:4px}.chat-product-card h5{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--secondary);margin-bottom:2px}.chat-product-card .cpc-price{color:var(--primary);font-weight:600;font-size:.85rem;font-family:'Jost',sans-serif}.chat-footer{padding:15px;border-top:1px solid #FCE4EC;display:flex;gap:10px}.chat-footer input{flex:1;padding:10px;border:1px solid #FCE4EC;border-radius:0;font-family:'Jost',sans-serif}.chat-footer button{background:var(--secondary);color:var(--white);border:none;padding:0 15px;border-radius:0;cursor:pointer;font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:1px;font-size:.8rem}.wa-btn{display:inline-block;margin-top:10px;background:transparent;border:1px solid #25D366;color:#25D366;padding:10px 20px;border-radius:0;text-decoration:none;font-weight:600;font-size:.8rem;text-align:center;font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:1px;transition:all .3s}.wa-btn:hover{background:#25D366;color:white}
+/* Estilos para las subcategorías dentro de la ventana flotante */
+.subcategoria-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin: 40px 0 20px 0;
+    text-align: left;
+    border-bottom: 2px solid #FCE4EC;
+    padding-bottom: 10px;
+    grid-column: 1 / -1; /* Hace que el título ocupe todo el ancho */
+}
+
+/* Ajuste del grid para que reconozca los títulos */
+#overlay-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
