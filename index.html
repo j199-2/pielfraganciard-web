@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PielFraganciaRD - Tienda Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header>
+        <img src="https://i.pinimg.com/1200x/4f/b2/31/4fb231e8ccf0907cf0bfbde247d65ed9.jpg" alt="Logo" class="logo-img">
+        <nav>
+            <ul>
+                <li><a href="#piel-aleia">Piel D´ Aleia</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Piel que cuida,<br>Fragancia que te define.</h1>
+        <div class="hero-divider"></div>
+        <p>Descubre tu esencia con nuestra asesora de belleza virtual</p>
+        <button class="btn-primary" onclick="toggleChat(true)">Hablar con la Asesora IA</button>
+    </section>
+
+    <section class="piel-aleia-luxe" id="piel-aleia">
+        <div class="aleia-visual"><div class="aleia-frame"></div></div>
+        <div class="aleia-content">
+            <span class="aleia-tag">Colección de Autor</span>
+            <h1 class="aleia-title">Piel D´ Aleia</h1>
+            <h2 class="aleia-subtitle">El elixir de arroz artesanal</h2>
+            <p class="aleia-desc">Más que un producto, una experiencia de lujo para tu piel. Nuestra fórmula artesanal fue diseñada para restaurar, unificar el tono, limpiar profundamente y devolver la luminosidad y madurez a tu rostro desde la primera aplicación.</p>
+            <ul class="aelia-benefits">
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Unifica el tono natural</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Luminosidad instantánea</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Fórmula 100% artesanal</li>
+            </ul>
+            <button class="btn-gold" onclick="openChatWithText('Hola, quiero saber más sobre la Mascarilla Piel D´ Aleia')">Descubrir el Secreto</button>
+        </div>
+    </section>
+
+    <section class="seccion" id="catalogo">
+        <h2>Universo de Belleza</h2>
+        <div class="subtitulo">Explora nuestras marcas</div>
+        <div class="grid-categorias" id="grid-categorias">
+            <!-- Las marcas se insertarán aquí automáticamente desde app.js -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <p>PielFraganciaRD &copy; 2024 - Piel que cuida, fragancia que te define.</p>
+            <p>Santiago de los Caballeros, República Dominicana.</p>
+        </div>
+    </footer>
+
+    <!-- VENTANA FLOTANTE DE MARCA -->
+    <div class="brand-overlay" id="brand-overlay">
+        <div class="overlay-header">
+            <h2 id="overlay-title">Productos</h2>
+            <button class="btn-cerrar" onclick="cerrarMarca()">← Volver al Inicio</button>
+        </div>
+        <div class="overlay-content">
+            <div class="grid-productos" id="overlay-grid"></div>
+        </div>
+    </div>
+
+    <!-- CHATBOT -->
+    <button id="chat-toggle" onclick="toggleChat()">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/><path d="M12 6l1.2 2.8L16 10l-2.8 1.2L12 14l-1.2-2.8L8 10l2.8-1.2z"/></svg>
+    </button>
+    
+    <div class="chat-box" id="chat-box">
+        <div class="chat-header">
+            <svg viewBox="0 0 24 24"><path d="M12 6l1.2 2.8L16 10l-2.8 1.2L12 14l-1.2-2.8L8 10l2.8-1.2z"/></svg>
+            Asesora de Belleza IA
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="mensaje bot">¡Hola! Soy tu asesora virtual de PielFraganciaRD. ¿En qué te puedo ayudar hoy?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." onkeypress="handleEnter(event)">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Llamar a los archivos JavaScript -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
