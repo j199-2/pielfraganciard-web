@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Marca - PielFraganciaRD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header>
+        <a href="index.html"><img src="https://i.pinimg.com/1200x/4f/b2/31/4fb231e8ccf0907cf0bfbde247d65ed9.jpg" alt="Logo" class="logo-img"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html#catalogo">Volver al Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="seccion">
+        <h2 id="titulo-marca">Cargando productos...</h2>
+        <div class="subtitulo" id="desc-marca"></div>
+        
+        <div class="overlay-content" style="padding: 0;">
+            <div id="overlay-grid"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <p>PielFraganciaRD &copy; 2024 - Piel que cuida, fragancia que te define.</p>
+            <p>Santiago de los Caballeros, República Dominicana.</p>
+        </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <button id="chat-toggle" onclick="toggleChat()">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/><path d="M12 6l1.2 2.8L16 10l-2.8 1.2L12 14l-1.2-2.8L8 10l2.8-1.2z"/></svg>
+    </button>
+    <div class="chat-box" id="chat-box">
+        <div class="chat-header">
+            <svg viewBox="0 0 24 24"><path d="M12 6l1.2 2.8L16 10l-2.8 1.2L12 14l-1.2-2.8L8 10l2.8-1.2z"/></svg>
+            Asesora de Belleza IA
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="mensaje bot">¡Hola! Soy tu asesora virtual de PielFraganciaRD. ¿En qué te puedo ayudar hoy?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." onkeypress="handleEnter(event)">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
