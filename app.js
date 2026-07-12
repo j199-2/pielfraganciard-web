@@ -18,7 +18,7 @@ function inicializarCatalogo() {
     gridCategorias.innerHTML = html;
 }
 
-// 2. Lógica de la Ventana Flotante (Overlay)
+// 2. Lógica de la Ventana Flotante (Overlay) con Subcategorías
 function abrirMarca(categoria) {
     const overlay = document.getElementById('brand-overlay');
     const grid = document.getElementById('overlay-grid');
@@ -26,22 +26,31 @@ function abrirMarca(categoria) {
     const datos = inventario[categoria];
 
     titulo.innerText = datos.titulo;
-    grid.innerHTML = '';
+    grid.innerHTML = ''; // Limpiamos el grid
 
-    datos.items.forEach(item => {
-        grid.innerHTML += `
-            <div class="card-producto">
-                <img src="${item.img}" alt="${item.nombre}">
-                <div class="info-producto">
-                    <span class="prod-tag">${item.tipo}</span>
-                    <h4>${item.nombre}</h4>
-                    <p>${item.desc}</p>
-                    <span class="precio">${item.precio}</span>
-                    <button class="btn-consultar" onclick="openChatWithText('Hola, vi el producto ${item.nombre} (${item.precio}) y quiero más información')">Consultar</button>
+    // Iteramos sobre las categorías internas de la marca
+    for (let subcatName in datos.categorias) {
+        let htmlSubcat = `<h3 class="subcategoria-titulo">${subcatName}</h3>`;
+        htmlSubcat += `<div class="grid-productos">`; // Abrimos grid para esta subcategoría
+        
+        datos.categorias[subcatName].forEach(item => {
+            htmlSubcat += `
+                <div class="card-producto">
+                    <img src="${item.img}" alt="${item.nombre}">
+                    <div class="info-producto">
+                        <span class="prod-tag">${item.tipo}</span>
+                        <h4>${item.nombre}</h4>
+                        <p>${item.desc}</p>
+                        <span class="precio">${item.precio}</span>
+                        <button class="btn-consultar" onclick="openChatWithText('Hola, vi el producto ${item.nombre} (${item.precio}) y quiero más información')">Consultar</button>
+                    </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
+        
+        htmlSubcat += `</div>`; // Cerramos grid
+        grid.innerHTML += htmlSubcat;
+    }
 
     overlay.style.display = 'block';
     document.body.style.overflow = 'hidden'; // Evita el scroll de fondo
@@ -54,7 +63,11 @@ function cerrarMarca() {
 
 // 3. Lógica del Chatbot Local
 let allProducts = [];
-for(let cat in inventario){ inventario[cat].items.forEach(p => allProducts.push({...p, category: cat})); }
+for(let cat in inventario){ 
+    for(let subcat in inventario[cat].categorias){
+        inventario[cat].categorias[subcat].forEach(p => allProducts.push({...p, category: cat}));
+    }
+}
 
 function getLocalResponse(t) {
     const l = t.toLowerCase();
@@ -67,7 +80,7 @@ function getLocalResponse(t) {
         if(p) r += `<div class="chat-product-card"><img src="${p.img}"><div class="cpc-info"><h5>${p.nombre}</h5><span class="cpc-price">${p.precio}</span></div></div>`;
         return r;
     }
-    if (l.includes('hombre') || l.includes('nitro')) {
+    if (l.includes('hombre') || l.includes('nitro') || l.includes('all black')) {
         let f = allProducts.filter(p => p.tipo.includes('Hombre')).slice(0, 2);
         let r = "Tenemos excelentes opciones para él:<br>";
         f.forEach(p => { r += `<div class="chat-product-card"><img src="${p.img}"><div class="cpc-info"><h5>${p.nombre}</h5><span class="cpc-price">${p.precio}</span></div></div>` });
