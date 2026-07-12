@@ -1,396 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PielFraganciaRD - Tienda Oficial</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-<style>
-:root{--primary:#B76E79;--secondary:#4A3F44;--bg-light:#FFF9F5;--text:#5F5556;--highlight:#D4A5A5;--gold:#C8A86E;--dark-luxe:#1F1A1C;--white:#FFFFFF}
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Montserrat',sans-serif;background-color:var(--bg-light);color:var(--text);line-height:1.6}
-header{background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:100;padding:10px 5%;display:flex;justify-content:space-between;align-items:center}
-.logo-img{height:55px;width:auto;border-radius:4px}nav ul{list-style:none;display:flex;gap:30px}nav a{text-decoration:none;color:var(--text);font-family:'Jost',sans-serif;font-size:.8rem;font-weight:300;text-transform:uppercase;transition:color .3s;letter-spacing:2px}nav a:hover{color:var(--primary)}
-.hero{text-align:center;padding:160px 20px;background:linear-gradient(rgba(253,246,240,.92),rgba(252,228,236,.85)),url('https://i.pinimg.com/736x/8b/2e/34/8b2e342c68729d76564d14e4dcbb289d.jpg') center/cover no-repeat fixed;position:relative}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:500;margin-bottom:20px;letter-spacing:2px;background:linear-gradient(135deg,#8B6B2D 0%,#C8A86E 50%,#8B6B2D 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 10px rgba(200,168,110,.2)}
-.hero-divider{width:60px;height:1px;background:var(--gold);margin:0 auto 30px auto}.hero p{font-family:'Jost',sans-serif;font-size:.9rem;color:var(--secondary);margin-bottom:50px;text-transform:uppercase;letter-spacing:4px;font-weight:300}
-.btn-primary{background:transparent;color:var(--secondary);padding:16px 45px;border:1px solid var(--secondary);font-family:'Jost',sans-serif;font-size:.8rem;cursor:pointer;transition:all .4s ease;text-transform:uppercase;letter-spacing:3px;border-radius:0;font-weight:400}.btn-primary:hover{background:var(--secondary);color:var(--white)}
-.piel-aleia-luxe{display:flex;min-height:100vh;background:var(--dark-luxe);color:var(--white);position:relative;overflow:hidden}.aleia-visual{flex:1;background:url('https://i.pinimg.com/1200x/43/13/02/4313029ef1af832e98c50e7e6b118587.jpg') center/cover no-repeat;position:relative;border-right:1px solid rgba(200,168,110,.3)}.aleia-visual::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to right,rgba(31,26,28,0),rgba(31,26,28,.8))}.aleia-frame{position:absolute;top:40px;left:40px;right:40px;bottom:40px;border:1px solid rgba(200,168,110,.5);z-index:2;pointer-events:none}
-.aleia-content{flex:1;display:flex;flex-direction:column;justify-content:center;padding:80px 8%;position:relative;z-index:3}.aleia-tag{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:6px;font-size:.75rem;color:var(--gold);margin-bottom:30px;display:block}.aleia-title{font-family:'Cormorant Garamond',serif;font-size:4.5rem;line-height:1;margin-bottom:15px;font-weight:500;color:var(--white)}.aleia-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;color:var(--highlight);margin-bottom:40px;font-weight:400}.aleia-desc{font-family:'Jost',sans-serif;font-size:1rem;line-height:2;color:#D1C7C9;margin-bottom:50px;max-width:500px;font-weight:300}
-.aelia-benefits{list-style:none;margin-bottom:60px}.aelia-benefits li{display:flex;align-items:center;gap:15px;margin-bottom:20px;font-family:'Jost',sans-serif;font-size:.9rem;letter-spacing:1px;color:#ECE0E1;text-transform:uppercase}.aelia-benefits svg{width:20px;height:20px;fill:var(--gold)}
-.btn-gold{background:linear-gradient(135deg,#C8A86E 0%,#8B6B2D 100%);color:#1F1A1C;padding:18px 50px;border:none;font-family:'Jost',sans-serif;font-size:.85rem;cursor:pointer;text-transform:uppercase;letter-spacing:3px;font-weight:500;transition:all .4s ease;box-shadow:0 10px 30px rgba(200,168,110,.2);align-self:flex-start}.btn-gold:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(200,168,110,.4)}
-.seccion{padding:80px 5%;text-align:center}.seccion h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--secondary);margin-bottom:10px;font-weight:500;letter-spacing:1px}.seccion .subtitulo{font-family:'Jost',sans-serif;color:var(--primary);margin-bottom:50px;font-size:.8rem;text-transform:uppercase;letter-spacing:3px;font-weight:300}
-.grid-categorias{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px;max-width:1200px;margin:0 auto}.card-categoria{background:var(--white);overflow:hidden;box-shadow:0 5px 20px rgba(74,63,68,.04);transition:all .4s ease;cursor:pointer;border:1px solid rgba(200,168,110,.1);text-align:left;position:relative}.card-categoria:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(183,110,121,.12);border-color:var(--gold)}
-.cat-img-wrapper{height:220px;overflow:hidden;position:relative}.card-categoria img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}.card-categoria:hover img{transform:scale(1.05)}.info-categoria{padding:25px;text-align:center;border-top:1px solid #F3E5E8}.cat-icon{width:28px;height:28px;fill:var(--gold);margin-bottom:12px;transition:transform .3s}.card-categoria:hover .cat-icon{transform:scale(1.1)}.info-categoria h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--secondary);margin-bottom:8px;letter-spacing:1px;font-weight:500}.cat-desc{font-family:'Jost',sans-serif;font-size:.8rem;color:#888;line-height:1.6;font-weight:300;margin-bottom:15px}.cat-link{font-family:'Jost',sans-serif;font-size:.7rem;color:var(--primary);text-transform:uppercase;letter-spacing:2px;font-weight:500;display:block;border-bottom:1px solid transparent;transition:border .3s;width:fit-content;margin:0 auto}.card-categoria:hover .cat-link{border-bottom:1px solid var(--primary)}
-footer{background:var(--secondary);color:var(--white);padding:60px 5% 20px;text-align:center}.footer-info{font-size:.8rem;color:#D4A5A5;margin-bottom:10px;font-family:'Jost',sans-serif;letter-spacing:1px;text-transform:uppercase}
-
-/* VENTANA FLOTANTE (OVERLAY) POR MARCA */
-.brand-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg-light);z-index:9999;overflow-y:auto;animation:fadeIn .4s ease}@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.overlay-header{background:var(--white);padding:20px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05);position:sticky;top:0;z-index:10}
-.overlay-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--secondary);font-weight:600;letter-spacing:1px}
-.btn-cerrar{background:var(--secondary);color:var(--white);border:none;padding:10px 25px;font-family:'Jost',sans-serif;font-size:.8rem;cursor:pointer;text-transform:uppercase;letter-spacing:2px;transition:all .3s}.btn-cerrar:hover{background:var(--primary)}
-.overlay-content{padding:40px 5%;max-width:1200px;margin:0 auto}
-.subcategoria-titulo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--primary);margin:40px 0 20px 0;text-align:left;border-bottom:2px solid #FCE4EC;padding-bottom:10px;grid-column:1 / -1}
-#overlay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
-.card-producto{background:var(--white);border-radius:0;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.05);transition:transform .3s;text-align:left;display:flex;flex-direction:column}.card-producto:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(183,110,121,.1)}.card-producto img{width:100%;height:250px;object-fit:cover}.info-producto{padding:20px;display:flex;flex-direction:column;flex-grow:1}.prod-tag{font-family:'Jost',sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:500;margin-bottom:5px;display:block}.info-producto h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--secondary);margin-bottom:5px;font-weight:600}.info-producto p{font-size:.85rem;color:#888;margin-bottom:15px;flex-grow:1;font-family:'Jost',sans-serif;font-weight:300;line-height:1.5}.info-producto .precio{color:var(--primary);font-weight:600;font-size:1.1rem;margin-bottom:15px;display:block;font-family:'Jost',sans-serif}.btn-consultar{width:100%;background:transparent;border:1px solid var(--secondary);color:var(--secondary);padding:10px;border-radius:0;cursor:pointer;font-weight:300;transition:all .3s;font-size:.75rem;margin-top:auto;text-transform:uppercase;letter-spacing:2px;font-family:'Jost',sans-serif}.btn-consultar:hover{background:var(--secondary);color:var(--white)}
-
-/* CHATBOT */
-#chat-toggle{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--secondary);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 20px rgba(74,63,68,.4);z-index:999;border:none;animation:pulse 2s infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,63,68,.4)}70%{box-shadow:0 0 0 15px rgba(74,63,68,0)}100%{box-shadow:0 0 0 0 rgba(74,63,68,0)}}#chat-toggle svg{width:30px;height:30px;fill:var(--gold)}
-.chat-box{display:none;position:fixed;bottom:100px;right:30px;width:350px;max-width:calc(100% - 60px);height:450px;background:var(--white);border-radius:0;box-shadow:0 10px 40px rgba(0,0,0,.2);z-index:999;flex-direction:column;overflow:hidden;border:1px solid var(--gold)}.chat-box.active{display:flex}.chat-header{background:var(--secondary);color:var(--white);padding:15px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.4rem;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:1px}.chat-body{flex:1;padding:20px;overflow-y:auto;background:#FDF6F0;display:flex;flex-direction:column;gap:15px}.mensaje{max-width:85%;padding:12px 15px;border-radius:0;font-size:.9rem;font-family:'Jost',sans-serif}.mensaje.bot{background:var(--white);border:1px solid #FCE4EC;align-self:flex-start;color:var(--secondary)}.mensaje.user{background:var(--secondary);color:var(--white);align-self:flex-end}.mensaje.typing{font-style:italic;color:#999}.chat-product-card{background:var(--white);border:1px solid #FCE4EC;padding:10px;margin-top:10px;display:flex;gap:10px;align-items:center}.chat-product-card img{width:60px;height:60px;object-fit:cover;border-radius:4px}.chat-product-card h5{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--secondary);margin-bottom:2px}.chat-product-card .cpc-price{color:var(--primary);font-weight:600;font-size:.85rem;font-family:'Jost',sans-serif}.chat-footer{padding:15px;border-top:1px solid #FCE4EC;display:flex;gap:10px}.chat-footer input{flex:1;padding:10px;border:1px solid #FCE4EC;border-radius:0;font-family:'Jost',sans-serif}.chat-footer button{background:var(--secondary);color:var(--white);border:none;padding:0 15px;border-radius:0;cursor:pointer;font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:1px;font-size:.8rem}.wa-btn{display:inline-block;margin-top:10px;background:transparent;border:1px solid #25D366;color:#25D366;padding:10px 20px;border-radius:0;text-decoration:none;font-weight:600;font-size:.8rem;text-align:center;font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:1px;transition:all .3s}.wa-btn:hover{background:#25D366;color:white}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PielFraganciaRD - Tienda Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <img src="https://i.pinimg.com/1200x/4f/b2/31/4fb231e8ccf0907cf0bfbde247d65ed9.jpg" alt="Logo" class="logo-img">
-    <nav>
-        <ul>
-            <li><a href="#piel-aleia">Piel D´ Aleia</a></li>
-            <li><a href="#catalogo">Catálogo</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <a href="index.html"><img src="https://i.pinimg.com/1200x/4f/b2/31/4fb231e8ccf0907cf0bfbde247d65ed9.jpg" alt="Logo" class="logo-img"></a>
+        <nav>
+            <ul>
+                <li><a href="#piel-aleia">Piel D´ Aleia</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<section class="hero">
-    <h1>Piel que cuida,<br>Fragancia que te define.</h1>
-    <div class="hero-divider"></div>
-    <p>Descubre tu esencia con nuestra asesora de belleza virtual</p>
-    <button class="btn-primary" onclick="toggleChat(true)">Hablar con la Asesora IA</button>
-</section>
+    <section class="hero">
+        <h1>Piel que cuida,<br>Fragancia que te define.</h1>
+        <div class="hero-divider"></div>
+        <p>Descubre tu esencia con nuestra asesora de belleza virtual</p>
+        <button class="btn-primary" onclick="toggleChat(true)">Hablar con la Asesora IA</button>
+    </section>
 
-<section class="piel-aleia-luxe" id="piel-aleia">
-    <div class="aleia-visual"><div class="aleia-frame"></div></div>
-    <div class="aleia-content">
-        <span class="aleia-tag">Colección de Autor</span>
-        <h1 class="aleia-title">Piel D´ Aleia</h1>
-        <h2 class="aleia-subtitle">El elixir de arroz artesanal</h2>
-        <p class="aleia-desc">Más que un producto, una experiencia de lujo para tu piel. Nuestra fórmula artesanal fue diseñada para restaurar, unificar el tono, limpiar profundamente y devolver la luminosidad y madurez a tu rostro desde la primera aplicación.</p>
-        <ul class="aelia-benefits">
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Unifica el tono natural</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Luminosidad instantánea</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Fórmula 100% artesanal</li>
-        </ul>
-        <button class="btn-gold" onclick="openChatWithText('Hola, quiero saber más sobre la Mascarilla Piel D´ Aleia')">Descubrir el Secreto</button>
+    <section class="piel-aleia-luxe" id="piel-aleia">
+        <div class="aleia-visual"><div class="aleia-frame"></div></div>
+        <div class="aleia-content">
+            <span class="aleia-tag">Colección de Autor</span>
+            <h1 class="aleia-title">Piel D´ Aleia</h1>
+            <h2 class="aleia-subtitle">El elixir de arroz artesanal</h2>
+            <p class="aleia-desc">Más que un producto, una experiencia de lujo para tu piel. Nuestra fórmula artesanal fue diseñada para restaurar, unificar el tono, limpiar profundamente y devolver la luminosidad y madurez a tu rostro desde la primera aplicación.</p>
+            <ul class="aelia-benefits">
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Unifica el tono natural</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Luminosidad instantánea</li>
+                <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Fórmula 100% artesanal</li>
+            </ul>
+            <button class="btn-gold" onclick="openChatWithText('Hola, quiero saber más sobre la Mascarilla Piel D´ Aleia')">Descubrir el Secreto</button>
+        </div>
+    </section>
+
+    <section class="seccion" id="catalogo">
+        <h2>Universo de Belleza</h2>
+        <div class="subtitulo">Explora nuestras marcas</div>
+        <div class="grid-categorias" id="grid-categorias">
+            <!-- Las tarjetas se generan soltas desde app.js -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <p>PielFraganciaRD &copy; 2024 - Piel que cuida, fragancia que te define.</p>
+            <p>Santiago de los Caballeros, República Dominicana.</p>
+        </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <button id="chat-toggle" onclick="toggleChat()">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/><path d="M12 6l1.2 2.8L16 10l-2.8 1.2L12 14l-1.2-2.8L8 10l2.8-1.2z"/></svg>
+    </button>
+    <div class="chat-box" id="chat-box">
+        <div class="chat-header">
+            <svg viewBox="0 0 24 24"><path d="M12 6l1.2 2.8L16 10l-2.8 1.2L12 14l-1.2-2.8L8 10l2.8-1.2z"/></svg>
+            Asesora de Belleza IA
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="mensaje bot">¡Hola! Soy tu asesora virtual de PielFraganciaRD. ¿En qué te puedo ayudar hoy?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." onkeypress="handleEnter(event)">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
     </div>
-</section>
 
-<section class="seccion" id="catalogo">
-    <h2>Universo de Belleza</h2>
-    <div class="subtitulo">Explora nuestras marcas</div>
-    <div class="grid-categorias" id="grid-categorias"></div>
-</section>
-
-<footer>
-    <div class="footer-info">
-        <p>PielFraganciaRD &copy; 2024 - Piel que cuida, fragancia que te define.</p>
-        <p>Santiago de los Caballeros, República Dominicana.</p>
-    </div>
-</footer>
-
-<!-- VENTANA FLOTANTE DE MARCA -->
-<div class="brand-overlay" id="brand-overlay">
-    <div class="overlay-header">
-        <h2 id="overlay-title">Productos</h2>
-        <button class="btn-cerrar" onclick="cerrarMarca()">← Volver al Inicio</button>
-    </div>
-    <div class="overlay-content">
-        <div id="overlay-grid"></div>
-    </div>
-</div>
-
-<!-- CHATBOT -->
-<button id="chat-toggle" onclick="toggleChat()">
-    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/><path d="M12 6l1.2 2.8L16 10l-2.8 1.2L12 14l-1.2-2.8L8 10l2.8-1.2z"/></svg>
-</button>
-<div class="chat-box" id="chat-box">
-    <div class="chat-header">
-        <svg viewBox="0 0 24 24"><path d="M12 6l1.2 2.8L16 10l-2.8 1.2L12 14l-1.2-2.8L8 10l2.8-1.2z"/></svg>
-        Asesora de Belleza IA
-    </div>
-    <div class="chat-body" id="chat-body">
-        <div class="mensaje bot">¡Hola! Soy tu asesora virtual de PielFraganciaRD. ¿En qué te puedo ayudar hoy?</div>
-    </div>
-    <div class="chat-footer">
-        <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." onkeypress="handleEnter(event)">
-        <button onclick="sendMessage()">Enviar</button>
-    </div>
-</div>
-
-<script>
-const inventario = {
-    pielfraganciard: { titulo: "PielFraganciaRD", img: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80=w=600&auto=format&fit=crop", desc: "Nuestra línea de autoría propia. Cuidado intensivo artesanal.", categorias: {
-        "Cuidado de la Piel": [
-            { nombre: "Mascarilla de Arroz (Piel de Aelia)", tipo: "Cuidado de la Piel", desc: "Tratamiento artesanal intensivo para aclarar manchas, unificar el tono y devolver la luminosidad natural.", precio: "RD$ 650", img: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80=w=500&auto=format&fit=crop" }
-        ]
-    }},
-    lbel: { titulo: "L'Bel", img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80=w=600&auto=format&fit=crop", desc: "Alta cosmética, tratamiento facial y perfumería premium.", categorias: {
-        "Fragancias Premium": [
-            { nombre: "Mon L'Bel", tipo: "Fragancia Premium", desc: "Oriental-maderoso con magnolia blanca. Mujer empoderada.", precio: "RD$ 3,500", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80=w=500&auto=format&fit=crop" },
-            { nombre: "Mithyka", tipo: "Fragancia Premium", desc: "Floral imponente con tiaré y sándalo. Alta concentración.", precio: "RD$ 3,800", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80=w=500&auto=format&fit=crop" }
-        ],
-        "Cuidado Facial": [
-            { nombre: "Concentré Total Rostro", tipo: "Facial", desc: "Crema global inteligente que combate los 10 signos del envejecimiento celular.", precio: "RD$ 2,500", img: "https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?q=80=w=500&auto=format&fit=crop" }
-        ]
-    }},
-    esika: { titulo: "Ésika", img: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80=w=600&auto=format&fit=crop", desc: "Color, conexión, maquillaje profesional y fragancias intensas.", categorias: {
-        "Maquillaje": [
-            { nombre: "Máscara Mega Full Size", tipo: "Maquillaje Ojos", desc: "Rímel alargador que estimula el crecimiento natural.", precio: "RD$ 1,095", img: "https://images.unsplash.com/photo-1631214540553-ff044a3ff7d1?q=80=w=500&auto=format&fit=crop" }
-        ],
-        "Fragancias": [
-            { nombre: "Vibranza", tipo: "Fragancia Mujer", desc: "Oriental dulce con orquídea de vainilla y flor de café.", precio: "RD$ 2,950", img: "https://images.unsplash.com/photo-1547887537-6158d3c4fc5d?q=80=w=500&auto=format&fit=crop" }
-        ]
-    }},
-    cyzone: { titulo: "Cyzone", img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80=w=600&auto=format&fit=crop", desc: "Skincare dermatológico, maquillaje, moda, accesorios y perfumes dulces.", categorias: {
-        "Maquillaje": [
-            { nombre: "Máscara de Pestañas Max Volume Lash Studio Look", tipo: "Ojos", desc: "Rímel que aporta volumen extremo. Tono Black.", precio: "RD$ 221", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1158656-500-auto?v=639175227853730000&width=500&height=auto&aspect=true" },
-            { nombre: "Mix It Up", tipo: "Labios", desc: "Labial multifuncional. Tono Amber Bloom.", precio: "RD$ 212", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1167186-500-auto?v=639190755507230000&width=500&height=auto&aspect=true" },
-            { nombre: "Labial líquido mate Y3K Studio Look", tipo: "Labios", desc: "Acabado mate aterciopelado. Tono Nude.", precio: "RD$ 170", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1167000-500-auto?v=639184482055670000&width=500&height=auto&aspect=true" },
-            { nombre: "Glow Lip Oil Studio Look", tipo: "Labios", desc: "Aceite labial con brillo intenso. Tono Deep.", precio: "RD$ 187", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1166894-500-auto?v=639184269251800000&width=500&height=auto&aspect=true" },
-            { nombre: "Intense Eyeliner Studio Look", tipo: "Ojos", desc: "Delineador líquido de alta precisión. Tono Mocha Brown.", precio: "RD$ 178", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1166882-500-auto?v=639184263982100000&width=500&height=auto&aspect=true" },
-            { nombre: "Forti Extense Lash Studio Look", tipo: "Ojos", desc: "Máscara de pestañas alargadora de alta duración.", precio: "RD$ 221", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1160023-500-auto?v=639175250214270000&width=500&height=auto&aspect=true" },
-            { nombre: "Sombra Líquida Gel Eye Pigment Metal Studio Look", tipo: "Ojos", desc: "Sombra líquida de alto brillo metálico. Tono Golden Metal.", precio: "RD$ 238", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1160753-500-auto?v=639175261495070000&width=500&height=auto&aspect=true" },
-            { nombre: "Studio Palette Studio Look", tipo: "Ojos", desc: "Paleta de sombras altamente pigmentadas. Tono Desert Nude.", precio: "RD$ 510", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159447-500-auto?v=639175240411800000&width=500&height=auto&aspect=true" },
-            { nombre: "Corrector de Maquillaje Studio Look", tipo: "Rostro", desc: "Corrector de alta cobertura. Tono Claro.", precio: "RD$ 195", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1140121-500-auto?v=639168604302430000&width=500&height=auto&aspect=true" },
-            { nombre: "Labial Velvet Lips Studio Look", tipo: "Labios", desc: "Textura aterciopelada y color intenso. Tono Deep Red.", precio: "RD$ 187", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1145256-500-auto?v=639168695256030000&width=500&height=auto&aspect=true" },
-            { nombre: "Volume Up Gloss", tipo: "Labios", desc: "Brillo labial con efecto volumen. Tono Hot Cherry.", precio: "RD$ 187", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1160435-500-auto?v=639175256583500000&width=500&height=auto&aspect=true" },
-            { nombre: "Labial Hydrabomb CyPlay", tipo: "Labios", desc: "Labial hidratante de alta pigmentación. Tono Marsala.", precio: "RD$ 85", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1158491-500-auto?v=639175225454730000&width=500&height=auto&aspect=true" },
-            { nombre: "Rubor en polvo Say Cheek! CyPlay", tipo: "Rostro", desc: "Rubor de alta pigmentación. Tono Kiss & Blush.", precio: "RD$ 212", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1158858-500-auto?v=639175231266400000&width=500&height=auto&aspect=true" },
-            { nombre: "Mate Lip Liner Studio Look", tipo: "Labios", desc: "Delineador de labios mate. Tono Blossom Nude.", precio: "RD$ 153", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1162726-500-auto?v=639175295546700000&width=500&height=auto&aspect=true" },
-            { nombre: "Máscara Secret Lash CyPlay", tipo: "Ojos", desc: "Máscara transparente para un look natural. 5.8 g.", precio: "RD$ 127", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1157683-500-auto?v=639175213012370000&width=500&height=auto&aspect=true" },
-            { nombre: "Mascara Tubing Studio Look", tipo: "Ojos", desc: "Tecnología tubbing que no se corre.", precio: "RD$ 221", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1164884-500-auto?v=639175334154070000&width=500&height=auto&aspect=true" },
-            { nombre: "Precision Brow Duo Studio Look", tipo: "Cejas", desc: "Delineador y cepillo para cejas. Tono Soft Brown.", precio: "RD$ 272", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159005-500-auto?v=639175233399430000&width=500&height=auto&aspect=true" },
-            { nombre: "Labial Hydra Kiss Cyplay", tipo: "Labios", desc: "Labial hidratante con acabado glossy. Tono Cherry.", precio: "RD$ 170", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1164015-500-auto?v=639175318613970000&width=500&height=auto&aspect=true" },
-            { nombre: "Protector Solar Facial Skin First con color", tipo: "Rostro", desc: "Protección solar facial con toque de color. 50 ml.", precio: "RD$ 297", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1163619-500-auto?v=639175312121270000&width=500&height=auto&aspect=true" },
-            { nombre: "Base de Maquillaje Perfect Glow", tipo: "Rostro", desc: "Base para un rostro radiante. Tono Claro.", precio: "RD$ 348", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1161204-500-auto?v=639175269337070000&width=500&height=auto&aspect=true" },
-            { nombre: "Ice Cream Gloss CyPlay", tipo: "Labios", desc: "Gloss con aroma frutal. Tono Watermelon.", precio: "RD$ 170", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1158401-500-auto?v=639175223923300000&width=500&height=auto&aspect=true" },
-            { nombre: "Delineador Eye Lines CyPlay", tipo: "Ojos", desc: "Delineador de ojos de trazado fluido. Tono Black Jack.", precio: "RD$ 119", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1158206-500-auto?v=639175221121800000&width=500&height=auto&aspect=true" },
-            { nombre: "Glitter para Ojos Gel Eye Pigment Shimmer Studio Look", tipo: "Ojos", desc: "Glitter en gel. Tono Malva Shimmer.", precio: "RD$ 238", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1161975-500-auto?v=639175281470670000&width=500&height=auto&aspect=true" },
-            { nombre: "Polvos Compactos Perfect Matte", tipo: "Rostro", desc: "Polvos mate. Tono 110-C.", precio: "RD$ 323", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1163974-500-auto?v=639175318053230000&width=500&height=auto&aspect=true" },
-            { nombre: "Multi Stick Studio Look", tipo: "Rostro", desc: "Multifuncional. Tono Sunset Blush.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1161539-500-auto?v=639175274360170000&width=500&height=auto&aspect=true" },
-            { nombre: "Labial Mate Glitter Studio Look", tipo: "Labios", desc: "Labial mate con partículas de brillo. Tono Red Carpet.", precio: "RD$ 187", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1161823-500-auto?v=639175278948570000&width=500&height=auto&aspect=true" },
-            { nombre: "Base Matte Finish Studio Look", tipo: "Rostro", desc: "Base líquida para acabado mate. Tono Claro 110C.", precio: "RD$ 348", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1161360-500-auto?v=639175271741730000&width=500&height=auto&aspect=true" },
-            { nombre: "Creamy Lip Balm Cyplay", tipo: "Labios", desc: "Bálsamo labial cremoso. Tono Fuchsia Creamy.", precio: "RD$ 153", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1158280-500-auto?v=639175222210130000&width=500&height=auto&aspect=true" },
-            { nombre: "Máscara de Pestañas Magnetic Lash Studio Look", tipo: "Ojos", desc: "Máscara con efecto pestañas postizas. Tono Black.", precio: "RD$ 187", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1161457-500-auto?v=639175273165730000&width=500&height=auto&aspect=true" },
-            { nombre: "Máscara de Cejas Oh My Brow Studio Look", tipo: "Cejas", desc: "Gel para cejas. Tono Dark Brown.", precio: "RD$ 238", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1160854-500-auto?v=639175263119600000&width=500&height=auto&aspect=true" },
-            { nombre: "Labial en Barra Supermate Lips Studio Look", tipo: "Labios", desc: "Labial en barra ultra mate. Tono Deep Red.", precio: "RD$ 161", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159288-500-auto?v=639175237865830000&width=500&height=auto&aspect=true" },
-            { nombre: "Intense Eyeliner Studio Look (Black)", tipo: "Ojos", desc: "Delineador líquido de alta precisión. Color intenso.", precio: "RD$ 178", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1161200-500-auto?v=639175269268930000&width=500&height=auto&aspect=true" },
-            { nombre: "Labial Mate Studio Look", tipo: "Labios", desc: "Clásico labial líquido mate. Tono Deep Red.", precio: "RD$ 170", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1156948-500-auto?v=639175201738300000&width=500&height=auto&aspect=true" },
-            { nombre: "Brocha para base Studio Look", tipo: "Accesorios", desc: "Brocha de densidad firme para base.", precio: "RD$ 187", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1157447-500-auto?v=639175209360630000&width=500&height=auto&aspect=true" },
-            { nombre: "Brocha para polvos Studio Look", tipo: "Accesorios", desc: "Brocha suave para polvos.", precio: "RD$ 187", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1157446-500-auto?v=639175209334800000&width=500&height=auto&aspect=true" },
-            { nombre: "Corrector It's Cover CyPlay", tipo: "Rostro", desc: "Corrector ligero. Tono Claro.", precio: "RD$ 136", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1132213-500-auto?v=639168455450270000&width=500&height=auto&aspect=true" },
-            { nombre: "Desmaquillador Bifásico Studio Look", tipo: "Skincare", desc: "Desmaquillador de doble fase.", precio: "RD$ 255", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1156311-500-auto?v=639174821009270000&width=500&height=auto&aspect=true" },
-            { nombre: "Delineador de Cejas Brow Pen CyPlay", tipo: "Cejas", desc: "Lápiz delineador. Tono Dark Brown.", precio: "RD$ 170", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1157802-500-auto?v=639175215056900000&width=500&height=auto&aspect=true" },
-            { nombre: "Polvos Matte Filter On CyPlay", tipo: "Rostro", desc: "Polvos traslúcidos. Tono Cheesecake On.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1157888-500-auto?v=639175216360170000&width=500&height=auto&aspect=true" },
-            { nombre: "Labial Xtra Cream Matte CyPlay", tipo: "Labios", desc: "Labial cremoso mate. Tono Malva.", precio: "RD$ 170", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1115614-500-auto?v=639129752495400000&width=500&height=auto&aspect=true" },
-            { nombre: "Brocha Maquillaje Para Sombras", tipo: "Accesorios", desc: "Brocha para sombras.", precio: "RD$ 161", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1130342-500-auto?v=639168424417230000&width=500&height=auto&aspect=true" },
-            { nombre: "Spray Fijador de Maquillaje Studio Look", tipo: "Accesorios", desc: "Fijador en spray.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1140063-500-auto?v=639168603101300000&width=500&height=auto&aspect=true" },
-            { nombre: "Primer Facial con Vitamina C Studio Look", tipo: "Rostro", desc: "Prebase iluminadora. 25 g.", precio: "RD$ 340", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1123921-500-auto?v=639165175117670000&width=500&height=auto&aspect=true" },
-            { nombre: "Lip Combo Deep Red + Sangría", tipo: "Labios", desc: "Set de labial y delineador.", precio: "RD$ 331", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1118270-500-auto?v=639147463195070000&width=500&height=auto&aspect=true" },
-            { nombre: "Delineador de ojos en gel Studio look", tipo: "Ojos", desc: "Delineador en gel. Tono White Snow.", precio: "RD$ 178", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1161418-500-auto?v=639175272603400000&width=500&height=auto&aspect=true" }
-        ],
-        "Perfumes y Fragancias": [
-            { nombre: "Set Duo Y25", tipo: "Set Perfume", desc: "Set especial con la icónica fragancia Y25.", precio: "RD$ 620", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1153801-500-auto?v=639168854797230000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume De Mujer Sweet Black Iconic", tipo: "Perfume Mujer", desc: "La nueva versión icónica de Sweet Black. 50 ml.", precio: "RD$ 408", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1153681-500-auto?v=639168852220370000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Taste Velvet", tipo: "Colonia", desc: "Aroma aterciopelado y cálido.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1164656-500-auto?v=639175330480030000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume unisex Blue & Blue For Us", tipo: "Perfume Unisex", desc: "Fragatura fresca para compartir. 90 ml.", precio: "RD$ 399", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1167572-500-auto?v=639193456353100000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de hombre All Black VIP", tipo: "Perfume Hombre", desc: "Edición VIP, intensa y exclusiva. 90 ml.", precio: "RD$ 510", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1163520-500-auto?v=639175310290230000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de mujer Crystal Star", tipo: "Perfume Mujer", desc: "Fragancia elegante y brillante.", precio: "RD$ 450", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1162756-500-auto?v=639175296001700000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume para Mujer Pink Crush", tipo: "Perfume Mujer", desc: "Fragancia nueva, dulce y juvenil. 50 ml.", precio: "RD$ 450", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1162110-500-auto?v=639175284117600000&width=500&height=auto&aspect=true" },
-            { nombre: "New Cool Limitless", tipo: "Perfume Hombre", desc: "Sin límites, fresco y dinámico. 75 ml.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1162045-500-auto?v=639175282969330000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume para Mujer Illusion", tipo: "Perfume Mujer", desc: "Aroma nuevo, fresco y floral. 50 ml.", precio: "RD$ 450", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1161992-500-auto?v=639175281726500000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de hombre Nitro Vision EDL", tipo: "Perfume Hombre", desc: "Frescura visual y adrenalina pura.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1148499-500-auto?v=639168754609800000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume De Mujer Sweet Black Seduction", tipo: "Perfume Mujer", desc: "Edición seductora, dulce y atrayente. 50 ml.", precio: "RD$ 408", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1160119-500-auto?v=639175252036400000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de Hombre Fist Victory", tipo: "Perfume Hombre", desc: "Aroma triunfador, deportivo y enérgico. 75 ml.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1145920-500-auto?v=639168707789570000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de Hombre New Cool intense", tipo: "Perfume Hombre", desc: "Versión intensa del clásico New Cool. 75 ml.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1160140-500-auto?v=639175252431330000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume para Mujer Y25 Mundial", tipo: "Perfume Mujer", desc: "Edición mundial de la fragancia Y25. 50 ml.", precio: "RD$ 450", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1145856-500-auto?v=639168706611400000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Maracuya Passion", tipo: "Colonia", desc: "Frescura tropical y frutal.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1144345-500-auto?v=639168679818100000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de hombre Blue & Blue Memories for Him", tipo: "Perfume Hombre", desc: "Recuerdos acuáticos y maderosos. 90 ml.", precio: "RD$ 399", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159500-500-auto?v=639175241530500000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de mujer Blue & Blue Memories for Her", tipo: "Perfume Mujer", desc: "Recuerdos frescos en fragancia floral. 90 ml.", precio: "RD$ 399", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159497-500-auto?v=639175241469430000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Miss Sexy Radiant", tipo: "Colonia", desc: "Aroma radiante y seductor.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159494-500-auto?v=639175241344570000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de Mujer Mystic Star Edición Limitada", tipo: "Perfume Mujer", desc: "Fragancia viral en edición limitada. 50 ml.", precio: "RD$ 450", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1152337-500-auto?v=639168827976930000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de mujer Autenti-k by me", tipo: "Perfume Mujer", desc: "Fragancia auténtica y personal.", precio: "RD$ 425", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1113262-500-auto?v=639122893966070000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de hombre All Black", tipo: "Perfume Hombre", desc: "Aroma oscuro, misterioso y masculino. 90 ml.", precio: "RD$ 493", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1153360-500-auto?v=639168846765600000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de hombre Nitro Night", tipo: "Perfume Hombre", desc: "Edición nocturna, intensa y profunda. 100 ml.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1136664-500-auto?v=639168540518700000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de Hombre New Cool", tipo: "Perfume Hombre", desc: "Frescura herbal y cítrica clásica. 75 ml.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1158331-500-auto?v=639175222954070000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de Mujer Identity", tipo: "Perfume Mujer", desc: "Fragancia que define tu personalidad. 50 ml.", precio: "RD$ 408", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1158327-500-auto?v=639175222882700000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de Mujer Autentik", tipo: "Perfume Mujer", desc: "Aroma auténtico para el día a día. 45 ml.", precio: "RD$ 425", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1157474-500-auto?v=639175209764800000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Uva Kiss", tipo: "Colonia", desc: "Dulce aroma a uva.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1144341-500-auto?v=639168679747270000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Taste Pop", tipo: "Colonia", desc: "Aroma efervescente y divertido.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1164647-500-auto?v=639175330286600000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume De Mujer Sweet Black Intense", tipo: "Perfume Mujer", desc: "La versión más intensa y duradera de Sweet Black. 50 ml.", precio: "RD$ 408", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1156589-500-auto?v=639175196477570000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Taste Warm", tipo: "Colonia", desc: "Esencia cálida y reconfortante.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1164650-500-auto?v=639175330345900000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Taste Candy", tipo: "Colonia", desc: "Dulce como un caramelo.", precio: "RD$ 238", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1164644-500-auto?v=639175330226170000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Taste Cool", tipo: "Colonia", desc: "Refrescante y mentolado.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1167434-500-auto?v=639193436396870000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume De Mujer Ainnara", tipo: "Perfume Mujer", desc: "Aroma cautivador y exótico. 50 ml.", precio: "RD$ 399", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1124424-500-auto?v=639168313758970000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume De Mujer Sweet Black", tipo: "Perfume Mujer", desc: "El perfume más vendido. Dulce con frambuesa. 50 ml.", precio: "RD$ 408", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1123903-500-auto?v=639162673470430000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de Mujer Flirty Girl Sexy", tipo: "Perfume Mujer", desc: "Para la mujer divertida y sensual. 50 ml.", precio: "RD$ 340", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159569-500-auto?v=639175242589500000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Miss Sexy", tipo: "Colonia", desc: "Aroma clásico y sensual.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1167504-500-auto?v=639193448061900000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Mora Potion", tipo: "Colonia", desc: "Mágica mezcla de mora.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159800-500-auto?v=639175246543500000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Pera in love", tipo: "Colonia", desc: "Frescura dulce de pera.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159793-500-auto?v=639175246371930000&width=500&height=auto&aspect=true" },
-            { nombre: "Colonia Berry Cocktail", tipo: "Colonia", desc: "Explosión de frutos rojos.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159797-500-auto?v=639175246482100000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de Mujer Blue & Blue For Her", tipo: "Perfume Mujer", desc: "Frescura cítrica y floral para ella. 75 ml.", precio: "RD$ 340", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1150346-500-auto?v=639168789531530000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de hombre Nitro", tipo: "Perfume Hombre", desc: "El clásico de Cyzone. Herbal audaz y ambarado.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1156393-500-auto?v=639175193055570000&width=500&height=auto&aspect=true" }
-        ]
-    }},
-    para_el: { titulo: "Universo para Él", img: "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?q=80=w=600&auto=format&fit=crop", desc: "Fragancias masculinas, cuidado personal y accesorios para hombre.", categorias: {
-        "Fragancias Masculinas": [
-            { nombre: "Perfume de hombre All Black VIP (Cyzone)", tipo: "Fragancia Hombre", desc: "Edición VIP, intensa y exclusiva. 90 ml.", precio: "RD$ 510", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1163520-500-auto?v=639175310290230000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de hombre Nitro (Cyzone)", tipo: "Fragancia Hombre", desc: "El clásico de Cyzone. Herbal audaz y ambarado.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1156393-500-auto?v=639175193055570000&width=500&height=auto&aspect=true" }
-        ]
-    }}
-};
-
-// 1. Pintar las marcas en la página principal al cargar
-function inicializarCatalogo() {
-    const gridCategorias = document.getElementById('grid-categorias');
-    let html = '';
-    for (let cat in inventario) {
-        html += `
-            <div class="card-categoria" id="cat-${cat}" onclick="abrirMarca('${cat}')">
-                <div class="cat-img-wrapper"><img src="${inventario[cat].img}" alt="${inventario[cat].titulo}"></div>
-                <div class="info-categoria">
-                    <svg class="cat-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    <h3>${inventario[cat].titulo}</h3>
-                    <p class="cat-desc">${inventario[cat].desc}</p>
-                    <span class="cat-link">Ver Productos</span>
-                </div>
-            </div>
-        `;
-    }
-    gridCategorias.innerHTML = html;
-}
-
-// 2. Lógica de la Ventana Flotante (Overlay) con Subcategorías
-function abrirMarca(categoria) {
-    const overlay = document.getElementById('brand-overlay');
-    const grid = document.getElementById('overlay-grid');
-    const titulo = document.getElementById('overlay-title');
-    const datos = inventario[categoria];
-
-    titulo.innerText = datos.titulo;
-    grid.innerHTML = '';
-
-    for (let subcatName in datos.categorias) {
-        let htmlSubcat = `<h3 class="subcategoria-titulo">${subcatName}</h3>`;
-        htmlSubcat += `<div class="grid-productos" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;">`;
-        
-        datos.categorias[subcatName].forEach(item => {
-            htmlSubcat += `
-                <div class="card-producto">
-                    <img src="${item.img}" alt="${item.nombre}">
-                    <div class="info-producto">
-                        <span class="prod-tag">${item.tipo}</span>
-                        <h4>${item.nombre}</h4>
-                        <p>${item.desc}</p>
-                        <span class="precio">${item.precio}</span>
-                        <button class="btn-consultar" onclick="openChatWithText('Hola, vi el producto ${item.nombre} (${item.precio}) y quiero más información')">Consultar</button>
-                    </div>
-                </div>
-            `;
-        });
-        
-        htmlSubcat += `</div>`;
-        grid.innerHTML += htmlSubcat;
-    }
-
-    overlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function cerrarMarca() {
-    document.getElementById('brand-overlay').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// 3. Lógica del Chatbot Local
-let allProducts = [];
-for(let cat in inventario){ 
-    for(let subcat in inventario[cat].categorias){
-        inventario[cat].categorias[subcat].forEach(p => allProducts.push({...p, category: cat}));
-    }
-}
-
-function getLocalResponse(t) {
-    const l = t.toLowerCase();
-    if (l.includes('comprar') || l.includes('llevar') || l.includes('quiero') || l.includes('pedido') || l.includes('listo') || l.includes('whatsapp') || l.includes('pagar')) {
-        return '¡Perfecto! Para finalizar tu compra y coordinar el pago y envío, por favor haz clic en el botón de WhatsApp. [FINALIZAR_PEDIDO]';
-    }
-    if (l.includes('rutina') || l.includes('skincare') || l.includes('manchas') || l.includes('granitos') || l.includes('piel de aelia')) {
-        let r = `Te recomiendo el <strong>Combo Perfecto</strong>:<br>1) <strong>Agua Micelar 5 en 1</strong> para limpiar.<br>2) <strong>Mascarilla Piel D´ Aleia</strong> para aclarar y unificar el tono.<br>3) <strong>Crema Triple Acción</strong> para sellar.<br><br>Aquí te dejo la joya de la casa:`;
-        let p = allProducts.find(x => x.nombre.includes("Piel de Aelia"));
-        if(p) r += `<div class="chat-product-card"><img src="${p.img}"><div class="cpc-info"><h5>${p.nombre}</h5><span class="cpc-price">${p.precio}</span></div></div>`;
-        return r;
-    }
-    if (l.includes('hombre') || l.includes('nitro') || l.includes('all black')) {
-        let f = allProducts.filter(p => p.tipo.includes('Hombre')).slice(0, 2);
-        let r = "Tenemos excelentes opciones para él:<br>";
-        f.forEach(p => { r += `<div class="chat-product-card"><img src="${p.img}"><div class="cpc-info"><h5>${p.nombre}</h5><span class="cpc-price">${p.precio}</span></div></div>` });
-        return r;
-    }
-    if (l.includes('perfume') || l.includes('fragancia')) {
-        let f = allProducts.filter(p => p.tipo.includes('Perfume') || p.tipo.includes('Fragancia')).slice(0, 2);
-        let r = "Mira estas opciones:<br>";
-        f.forEach(p => { r += `<div class="chat-product-card"><img src="${p.img}"><div class="cpc-info"><h5>${p.nombre}</h5><span class="cpc-price">${p.precio}</span></div></div>` });
-        return r;
-    }
-    return 'Puedo ayudarte a encontrar el producto ideal. Escríbeme qué necesitas, por ejemplo: "perfume para hombre", "rutina para granitos" o "Piel de Aleia".';
-}
-
-function toggleChat(f = false) {
-    const c = document.getElementById('chat-box');
-    if (f) { c.classList.add('active'); } else { c.classList.toggle('active'); }
-}
-
-function openChatWithText(t) {
-    toggleChat(true);
-    document.getElementById('chat-input').value = t;
-    sendMessage();
-}
-
-function handleEnter(e) {
-    if (e.key === 'Enter') sendMessage();
-}
-
-function sendMessage() {
-    const i = document.getElementById('chat-input'), b = document.getElementById('chat-body'), t = i.value.trim();
-    if (!t) return;
-    const u = document.createElement('div');
-    u.className = 'mensaje user';
-    u.innerText = t;
-    b.appendChild(u);
-    i.value = '';
-    b.scrollTop = b.scrollHeight;
-
-    const tp = document.createElement('div');
-    tp.className = 'mensaje bot typing';
-    tp.innerText = 'Escribiendo...';
-    b.appendChild(tp);
-    b.scrollTop = b.scrollHeight;
-
-    setTimeout(() => {
-        tp.remove();
-        const r = getLocalResponse(t);
-        if (r.includes('[FINALIZAR_PEDIDO]')) {
-            const fm = document.createElement('div');
-            fm.className = 'mensaje bot';
-            fm.innerHTML = r;
-            b.appendChild(fm);
-            const wc = document.createElement('div');
-            wc.style.textAlign = 'center';
-            wc.style.marginTop = '10px';
-            wc.innerHTML = `<a href="https://wa.me/18097896543?text=Hola!%20Vengo%20de%20la%20web.%20Quiero%20coordinar%20mi%20pedido." target="_blank" class="wa-btn">Finalizar por WhatsApp</a>`;
-            b.appendChild(wc);
-        } else {
-            const bm = document.createElement('div');
-            bm.className = 'mensaje bot';
-            bm.innerHTML = r;
-            b.appendChild(bm);
-        }
-        b.scrollTop = b.scrollHeight;
-    }, 600);
-}
-
-// Inicializar la web al cargar
-window.onload = inicializarCatalogo;
-</script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
