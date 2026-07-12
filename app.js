@@ -1,67 +1,72 @@
-// 1. Pintar las marcas en la página principal al cargar
-function inicializarCatalogo() {
-    const gridCategorias = document.getElementById('grid-categorias');
+// 1. Detectar en qué página estamos
+const gridCategorias = document.getElementById('grid-categorias');
+const tituloMarca = document.getElementById('titulo-marca');
+
+// Si estamos en index.html
+if (gridCategorias) {
     let html = '';
     for (let cat in inventario) {
+        // El enlace ahora va a marca.html?id=nombre_de_la_marca
         html += `
-            <div class="card-categoria" id="cat-${cat}" onclick="abrirMarca('${cat}')">
-                <div class="cat-img-wrapper"><img src="${inventario[cat].img}" alt="${inventario[cat].titulo}"></div>
-                <div class="info-categoria">
-                    <svg class="cat-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    <h3>${inventario[cat].titulo}</h3>
-                    <p class="cat-desc">${inventario[cat].desc}</p>
-                    <span class="cat-link">Ver Productos</span>
+            <a href="marca.html?id=${cat}" style="text-decoration:none;color:inherit;">
+                <div class="card-categoria" id="cat-${cat}">
+                    <div class="cat-img-wrapper"><img src="${inventario[cat].img}" alt="${inventario[cat].titulo}"></div>
+                    <div class="info-categoria">
+                        <svg class="cat-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <h3>${inventario[cat].titulo}</h3>
+                        <p class="cat-desc">${inventario[cat].desc}</p>
+                        <span class="cat-link">Ver Productos</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         `;
     }
     gridCategorias.innerHTML = html;
 }
 
-// 2. Lógica de la Ventana Flotante (Overlay) con Subcategorías
-function abrirMarca(categoria) {
-    const overlay = document.getElementById('brand-overlay');
-    const grid = document.getElementById('overlay-grid');
-    const titulo = document.getElementById('overlay-title');
-    const datos = inventario[categoria];
+// Si estamos en marca.html
+if (tituloMarca) {
+    // Leer el parámetro de la URL (ej: ?id=cyzone)
+    const params = new URLSearchParams(window.location.search);
+    const marcaId = params.get('id');
+    const datos = inventario[marcaId];
 
-    titulo.innerText = datos.titulo;
-    grid.innerHTML = ''; // Limpiamos el grid
-
-    // Iteramos sobre las categorías internas de la marca
-    for (let subcatName in datos.categorias) {
-        let htmlSubcat = `<h3 class="subcategoria-titulo">${subcatName}</h3>`;
-        htmlSubcat += `<div class="grid-productos">`; // Abrimos grid para esta subcategoría
+    if (datos) {
+        document.title = datos.titulo + " - PielFraganciaRD";
+        tituloMarca.innerText = datos.titulo;
+        document.getElementById('desc-marca').innerText = datos.desc;
         
-        datos.categorias[subcatName].forEach(item => {
-            htmlSubcat += `
-                <div class="card-producto">
-                    <img src="${item.img}" alt="${item.nombre}">
-                    <div class="info-producto">
-                        <span class="prod-tag">${item.tipo}</span>
-                        <h4>${item.nombre}</h4>
-                        <p>${item.desc}</p>
-                        <span class="precio">${item.precio}</span>
-                        <button class="btn-consultar" onclick="openChatWithText('Hola, vi el producto ${item.nombre} (${item.precio}) y quiero más información')">Consultar</button>
+        const grid = document.getElementById('overlay-grid');
+        let htmlContent = '';
+
+        // Iterar sobre las categorías internas
+        for (let subcatName in datos.categorias) {
+            htmlContent += `<h3 class="subcategoria-titulo">${subcatName}</h3>`;
+            htmlContent += `<div class="grid-productos">`;
+            
+            datos.categorias[subcatName].forEach(item => {
+                htmlContent += `
+                    <div class="card-producto">
+                        <img src="${item.img}" alt="${item.nombre}">
+                        <div class="info-producto">
+                            <span class="prod-tag">${item.tipo}</span>
+                            <h4>${item.nombre}</h4>
+                            <p>${item.desc}</p>
+                            <span class="precio">${item.precio}</span>
+                            <button class="btn-consultar" onclick="openChatWithText('Hola, vi el producto ${item.nombre} (${item.precio}) y quiero más información')">Consultar</button>
+                        </div>
                     </div>
-                </div>
-            `;
-        });
-        
-        htmlSubcat += `</div>`; // Cerramos grid
-        grid.innerHTML += htmlSubcat;
+                `;
+            });
+            htmlContent += `</div>`;
+        }
+        grid.innerHTML = htmlContent;
+    } else {
+        tituloMarca.innerText = "Marca no encontrada";
     }
-
-    overlay.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Evita el scroll de fondo
 }
 
-function cerrarMarca() {
-    document.getElementById('brand-overlay').style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restaura el scroll
-}
-
-// 3. Lógica del Chatbot Local
+// 2. Lógica del Chatbot Local
 let allProducts = [];
 for(let cat in inventario){ 
     for(let subcat in inventario[cat].categorias){
@@ -148,6 +153,3 @@ function sendMessage() {
         b.scrollTop = b.scrollHeight;
     }, 600);
 }
-
-// Inicializar la web al cargar
-window.onload = inicializarCatalogo;
