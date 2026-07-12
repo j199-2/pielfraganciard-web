@@ -25,7 +25,7 @@ const inventario = {
         "Maquillaje": [
             { nombre: "Máscara de Pestañas Max Volume Lash Studio Look", tipo: "Ojos", desc: "Rímel que aporta volumen extremo. Tono Black.", precio: "RD$ 221", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1158656-500-auto?v=639175227853730000&width=500&height=auto&aspect=true" },
             { nombre: "Mix It Up", tipo: "Labios", desc: "Labial multifuncional. Tono Amber Bloom.", precio: "RD$ 212", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1167186-500-auto?v=639190755507230000&width=500&height=auto&aspect=true" },
-            { nombre: "Labial Líquido Mate Y3K Studio Look", tipo: "Labios", desc: "Acabado mate aterciopelado. Tono Nude.", precio: "RD$ 170", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1167000-500-auto?v=639184482055670000&width=500&height=auto&aspect=true" },
+            { nombre: "Labial líquido mate Y3K Studio Look", tipo: "Labios", desc: "Acabado mate aterciopelado. Tono Nude.", precio: "RD$ 170", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1167000-500-auto?v=639184482055670000&width=500&height=auto&aspect=true" },
             { nombre: "Glow Lip Oil Studio Look", tipo: "Labios", desc: "Aceite labial con brillo intenso. Tono Deep.", precio: "RD$ 187", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1166894-500-auto?v=639184269251800000&width=500&height=auto&aspect=true" },
             { nombre: "Intense Eyeliner Studio Look", tipo: "Ojos", desc: "Delineador líquido de alta precisión. Tono Mocha Brown.", precio: "RD$ 178", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1166882-500-auto?v=639184263982100000&width=500&height=auto&aspect=true" },
             { nombre: "Forti Extense Lash Studio Look", tipo: "Ojos", desc: "Máscara de pestañas alargadora de alta duración.", precio: "RD$ 221", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1160023-500-auto?v=639175250214270000&width=500&height=auto&aspect=true" },
@@ -108,14 +108,4 @@ const inventario = {
             { nombre: "Colonia Mora Potion", tipo: "Colonia", desc: "Mágica mezcla de mora.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159800-500-auto?v=639175246543500000&width=500&height=auto&aspect=true" },
             { nombre: "Colonia Pera in love", tipo: "Colonia", desc: "Frescura dulce de pera.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159793-500-auto?v=639175246371930000&width=500&height=auto&aspect=true" },
             { nombre: "Colonia Berry Cocktail", tipo: "Colonia", desc: "Explosión de frutos rojos.", precio: "RD$ 255", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1159797-500-auto?v=639175246482100000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de Mujer Blue & Blue For Her", tipo: "Perfume Mujer", desc: "Frescura cítrica y floral para ella. 75 ml.", precio: "RD$ 340", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1150346-500-auto?v=639168789531530000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de hombre Nitro", tipo: "Perfume Hombre", desc: "El clásico de Cyzone. Herbal audaz y ambarado.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1156393-500-auto?v=639175193055570000&width=500&height=auto&aspect=true" }
-        ]
-    }},
-    para_el: { titulo: "Universo para Él", img: "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?q=80=w=600&auto=format&fit=crop", desc: "Fragancias masculinas, cuidado personal y accesorios para hombre.", categorias: {
-        "Fragancias Masculinas": [
-            { nombre: "Perfume de hombre All Black VIP (Cyzone)", tipo: "Fragancia Hombre", desc: "Edición VIP, intensa y exclusiva. 90 ml.", precio: "RD$ 510", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1163520-500-auto?v=639175310290230000&width=500&height=auto&aspect=true" },
-            { nombre: "Perfume de hombre Nitro (Cyzone)", tipo: "Fragancia Hombre", desc: "El clásico de Cyzone. Herbal audaz y ambarado.", precio: "RD$ 442", img: "https://cyzonemexico.vtexassets.com/arquivos/ids/1156393-500-auto?v=639175193055570000&width=500&height=auto&aspect=true" }
-        ]
-    }}
-};
+            { nombre: "Perfume de Mujer Blue & Blue For Her", tipo: "Perfume Mujer", desc: "Frescura cítrica y floral para ella. 75 ml.", precio: "RD$ 340", img: "https://belcorpmexico.vtexassets.com/arquivos/ids/1150346-500-auto?v=639168789531530000&width=500
